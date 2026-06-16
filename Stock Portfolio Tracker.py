@@ -17,6 +17,13 @@ def calculate_portfolio_value(portfolio):
 
 
 portfolio = {}
+print("========= Stock Portfolio Tracker ========")
+
+print("Available stocks:")
+for stock in stock_prices:
+    print(f" - {stock}")
+
+
 while True:
     stock = input("Enter stock symbol (or 'done' to finish): ").upper()
     if stock == "DONE":
@@ -26,24 +33,22 @@ while True:
         print("Stock symbol not recognized. Please try again.")
         continue
 
-    shares = int(input("Enter number of shares: "))
+    shares = int(input("Enter quantity: "))
 
     portfolio[stock] = portfolio.get(stock,0) + shares
 
 total_value = calculate_portfolio_value(portfolio)
 
-print("========= Your Portfolio =========")
+print("========= Your Portfolio Summary =========")
 
 for stock, shares in portfolio.items():
-    print(f"{stock}: {shares} shares")
-    print(f"Current Price: ${stock_prices[stock]:.2f}")
-    print(f"Value: ${stock_prices[stock] * shares:.2f}")
+    print(f"{stock} | Quantity:{shares} | Price: ${stock_prices[stock]:.2f} | Value: ${stock_prices[stock] * shares:.2f}")
 
 print(f"Total Portfolio Value: ${total_value:.2f}")
 
 #save to the file
 with open("portfolio_summary.txt", "w") as file:
-    file.write("========= Your Portfolio =========\n")
+    file.write("========= Your Portfolio Summary =========\n")
     for stock, shares in portfolio.items():
         file.write(f"{stock}: {shares} shares\n")
         file.write(f"Current Price: ${stock_prices[stock]:.2f}\n")

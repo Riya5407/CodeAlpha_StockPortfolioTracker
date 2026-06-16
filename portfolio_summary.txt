@@ -1,0 +1,8 @@
+========= Your Portfolio Summary =========
+AAPL: 5 shares
+Current Price: $180.00
+Value: $900.00
+GOOGL: 2 shares
+Current Price: $2800.00
+Value: $5600.00
+Total Portfolio Value: $6500.00
